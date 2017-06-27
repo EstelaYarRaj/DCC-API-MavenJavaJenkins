@@ -9,9 +9,10 @@ import java.util.Scanner;
 import java.io.*; 
 import org.json.*;
 
+
 public class TestCase {
-	public final static String swaggerServer = "http://nj3dccnjsdv02.it.savvis.net:10010";
-	public final static String Token = "15065a29e896b01547dc55de92acaa1b";
+	public final static String swaggerServer = "http://nj3dccnjsdv02.it.savvis.net:10010";	
+	public static String Token = "No token specified";
 	public static ArrayList<Integer> CompanyID;
 	public static ArrayList<String> ClusterID;
 	public static ArrayList<Integer> MachineID;
@@ -29,96 +30,111 @@ public class TestCase {
 		add("storage");
 	}};
 	public static void main(String[] args) {
-		login();
-		getSession();
-		System.out.println("Run test: \n" +
-				"1) getCompany \n");				
-		System.out.println("Enter number: ");
-		Scanner reader = new Scanner(System.in);
-		int n = reader.nextInt();
-		if ( n == 1 ){
-			int v = 0;
-			getCompany();
-			Scanner reader2 = new Scanner(System.in);
-			int n2 = reader2.nextInt();
-			while (v == 0)
-			{
-				System.out.println("Choose Test: \n"
-						+ "2) getStorages \n"
-						+ "3) getDataCenters \n"
-						+ "4) getAvailIPs (Unavailable) \n"
-						+ "5) getBillingSites \n"
-						+ "6) getOrders\n"
-						+ "7) getOrderProducts \n"
-						+ "8) getMachineImages \n"
-						+ "9) getDomain \n"
-						+ "10) getClusters \n"
-						+ "11) getClusterNetworkIntSeg \n"
-						+ "12) getCluterCatalog \n"
-						+ "13) getClusterMachineImages \n"
-						+ "14) getClusterHosts \n"
-						+ "15) getClusterStorage \n " );
-				System.out.println("Enter number: ");			
+		while( true ){
+			System.out.println("Enter Authentication token (Savvis Station): ");
+			Scanner tokenReader = new Scanner(System.in);
+			String t = tokenReader.next();
+			Token = t;
+			if (login() != 200){
+				System.out.println("Authentication token is not valid");
 				
-				if ( n2 == 2 ){
-					getStorages();
-
-				}
-				else if ( n2 == 3 ){
-					getDataCenters();
-
-				}
-				else if ( n2 == 4 ){
-					/*getAvailIPs();*/
-			
-				}
-				else if ( n2 == 5 ){
-					getBillingSites();
-
-				}
-				else if ( n2 == 6 ){
-					getOrders();
-				}
-				else if ( n2 == 7 ){
-					getOrderProducts();
-
-				}
-				else if ( n2 == 8 ){
-					getMachineImages();
-
-				}
-				else if ( n2 == 9 ){
-					getDomain();
-
-				}
-				else if ( n2 == 10 ){
-					getClusters();
-
-				}
-				else if ( n2 == 11 ){
-					getClusterNetworkIntSeg();
-
-				}
-				else if ( n2== 12){
-					getCluterCatalog();
-
-				}
-				else if ( n2 == 13 ){
-					getClusterMachineImages();
-
-				}
-				else if ( n2 == 14 ){
-					getClusterHosts();
-
-				}
-				else if ( n2 == 15 ){
-					getClusterStorage();
-
-				}
-				reader2.close();
-			}	
-			reader.close();
 			}
+			else
+			{
+				getSession();
+				System.out.println("Run test: \n" +
+						"1) getCompany \n");				
+				System.out.println("Enter number: ");
+				Scanner reader = new Scanner(System.in);
+				int n = reader.nextInt();
+				if ( n == 1 ){
+					int v = 0;
+					getCompany();
+					Scanner reader2 = new Scanner(System.in);
+					int n2 = reader2.nextInt();
+					while (v == 0)
+					{
+						System.out.println("Choose Test: \n"
+								+ "2) getStorages \n"
+								+ "3) getDataCenters \n"
+								+ "4) getAvailIPs (Unavailable) \n"
+								+ "5) getBillingSites \n"
+								+ "6) getOrders\n"
+								+ "7) getOrderProducts \n"
+								+ "8) getMachineImages \n"
+								+ "9) getDomain \n"
+								+ "10) getClusters \n"
+								+ "11) getClusterNetworkIntSeg \n"
+								+ "12) getCluterCatalog \n"
+								+ "13) getClusterMachineImages \n"
+								+ "14) getClusterHosts \n"
+								+ "15) getClusterStorage \n " );
+						System.out.println("Enter number: ");			
+						
+						if ( n2 == 2 ){
+							getStorages();
+
+						}
+						else if ( n2 == 3 ){
+							getDataCenters();
+
+						}
+						else if ( n2 == 4 ){
+							/*getAvailIPs();*/
+					
+						}
+						else if ( n2 == 5 ){
+							getBillingSites();
+
+						}
+						else if ( n2 == 6 ){
+							getOrders();
+						}
+						else if ( n2 == 7 ){
+							getOrderProducts();
+
+						}
+						else if ( n2 == 8 ){
+							getMachineImages();
+
+						}
+						else if ( n2 == 9 ){
+							getDomain();
+
+						}
+						else if ( n2 == 10 ){
+							getClusters();
+
+						}
+						else if ( n2 == 11 ){
+							getClusterNetworkIntSeg();
+
+						}
+						else if ( n2== 12){
+							getCluterCatalog();
+
+						}
+						else if ( n2 == 13 ){
+							getClusterMachineImages();
+
+						}
+						else if ( n2 == 14 ){
+							getClusterHosts();
+
+						}
+						else if ( n2 == 15 ){
+							getClusterStorage();
+
+						}
+						reader2.close();
+					}	
+					reader.close();
+					}
+				tokenReader.close();
+			}
+		}
+		
+		
 			
 	}
 	/** public static void getToken() {		
