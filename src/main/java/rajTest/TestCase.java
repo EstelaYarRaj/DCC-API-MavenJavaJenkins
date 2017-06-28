@@ -7,7 +7,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*; 
-import org.json.*;
+
 
 
 public class TestCase {
@@ -221,8 +221,7 @@ public class TestCase {
 				response.append(inputLine);
 
 			};
-			JSONObject jsonObject = new JSONObject(response.toString());
-			System.out.println("Logged in as: " + jsonObject.getString("name") + "\n");
+			System.out.println("Logged in");
 			in.close();
 			
 		}
