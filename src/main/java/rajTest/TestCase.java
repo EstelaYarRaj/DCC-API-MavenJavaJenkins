@@ -21,7 +21,6 @@ public class TestCase {
 	public static String OsName;
 	public static String OsID;
 	public static ArrayList<Integer> ProductID;
-	@SuppressWarnings("serial")
 	public final static ArrayList<String> Type = new ArrayList<String>(){{
 		
 		add("os");
