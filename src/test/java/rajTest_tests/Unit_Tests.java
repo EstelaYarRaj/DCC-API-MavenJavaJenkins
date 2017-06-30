@@ -5,7 +5,17 @@ import org.junit.Test;
 import rajTest.TestCase;
 
 public class Unit_Tests {
-
+	@Test
+	public void haveToken(){
+		if (TestCase.Token == "No token specified"){
+			fail("No authentication token");
+		}
+		else if (TestCase.login() != 200){
+			fail("Authentication token invalid"); 
+		}
+	}
+	
+	
 	@Test
 	public void logintest(){
 		assertEquals(TestCase.login(), 200);
