@@ -12,7 +12,7 @@ import java.io.*;
 
 public class TestCase {
 	public final static String swaggerServer = "http://nj3dccnjsdv02.it.savvis.net:10010";	
-	public static String Token = "No token specified";
+	public static String jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJzb25JZCI6OTU1MzA5LCJjdXN0b21lcklkIjoyMDE1MTQsImxvZ2luTmFtZSI6Im11bmtvbmcuY2hhbkBkZXYuY29tIiwiZW1haWwiOiJtdW5rb25nLmNoYW5AY2VudHVyeWxpbmsuY29tIiwidXNlck5hbWUiOiJNdW5rb25nIENoYW4iLCJ1c2VySWQiOjExNDI0NiwiYXBwTmFtZSI6IlNhdnZpc0NDQyIsInNlc3Npb25TdGFydCI6IjIwMTctMDYtMzBUMDU6Mjg6MTIuMDAwWiIsInNlc3Npb25JZCI6ImJhNmE1NDc4ODM2MzkxYzVlZDI2ZWU2ZDM1NmYwNjhjIiwib3B0c3RhdCI6ZmFsc2UsImlhdCI6MTQ5ODgwMDE5MSwiZXhwIjoxNDk4ODY0OTkxfQ.zGox5OdSsqkuU6HcZOWXWQ5lTk2oGvuex32aS-zqNzw";
 	public static ArrayList<Integer> CompanyID;
 	public static ArrayList<String> ClusterID;
 	public static ArrayList<Integer> MachineID;
@@ -34,7 +34,7 @@ public class TestCase {
 			System.out.println("Enter Authentication token (Savvis Station): ");
 			Scanner tokenReader = new Scanner(System.in);
 			String t = tokenReader.next();
-			Token = t;
+			jwtToken = t;
 			if (login() != 200){
 				System.out.println("Authentication token is not valid");
 				
@@ -171,7 +171,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/login");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("POST");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			conn.setRequestProperty("Content-Type", "application/json");						
 			
 			conn.setDoOutput(true);
@@ -207,7 +207,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/session");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' session to URL: " + obj);
@@ -240,7 +240,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company request to URL: " + obj);
@@ -270,7 +270,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/storages");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company Storages request to URL: " + obj);
@@ -322,7 +322,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/dataCenters");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company Data Centers request to URL: " + obj);
@@ -427,7 +427,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/billingSites");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company billing Sites request to URL: " + obj);
@@ -478,7 +478,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/orders");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company orders request to URL: " + obj);
@@ -528,7 +528,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/orders/" + "5784be6a6eaed0783558728c" + "/products" );
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company order products request to URL: " + obj);
@@ -579,7 +579,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/machineImages");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company Machines request to URL: " + obj);
@@ -631,7 +631,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/domains");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company domains request to URL: " + obj);
@@ -683,7 +683,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters");
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company domains request to URL: " + obj);
@@ -734,7 +734,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters/" + "58b9ae92b95f761040cc1b5f" + "/catalogs/networks /internal/segments"  );
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company cluster segments request to URL: " + obj);
@@ -788,7 +788,7 @@ public class TestCase {
 				URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters/" + "58b9ae92b95f761040cc1b5f" + "/catalogs/" + "?type=" + Type.get(y)  );
 				URLConnection conn = (URLConnection) obj.openConnection();
 				((HttpURLConnection) conn).setRequestMethod("GET");
-				conn.setRequestProperty("auth-token", Token);
+				conn.setRequestProperty("Authorization", jwtToken);
 				
 				responseCode = ((HttpURLConnection) conn).getResponseCode();
 				System.out.println("\nSending 'GET' Company cluster catalogs request to URL: " + obj);
@@ -845,7 +845,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters/" + "58b9ae92b95f761040cc1b5f" + "/machines"  );
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company cluster machines request to URL: " + obj);
@@ -898,7 +898,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters/" + "58b9ae92b95f761040cc1b5f" + "/hosts"  );
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company cluster hosts request to URL: " + obj);
@@ -951,7 +951,7 @@ public class TestCase {
 			URL obj = new URL(swaggerServer + "/companies/" + 201514 + "/clusters/" + "58b9ae92b95f761040cc1b5f" + "/storages"  );
 			URLConnection conn = (URLConnection) obj.openConnection();
 			((HttpURLConnection) conn).setRequestMethod("GET");
-			conn.setRequestProperty("auth-token", Token);
+			conn.setRequestProperty("Authorization", jwtToken);
 			
 			responseCode = ((HttpURLConnection) conn).getResponseCode();
 			System.out.println("\nSending 'GET' Company cluster storages request to URL: " + obj);
