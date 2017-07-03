@@ -7,6 +7,11 @@ node {
             steps { 
                echo 'Reading..'
             }
+        stage('SonarQube analysis') {
+            withSonarQubeEnv('My SonarQube Server') {
+                 sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                 }
+            }
         }
         stage('Build') {
             sh "C:\maven\bin\mvn clean build"
