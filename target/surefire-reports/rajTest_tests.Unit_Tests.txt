@@ -1,4 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: rajTest_tests.Unit_Tests
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 79.116 s - in rajTest_tests.Unit_Tests
+Tests run: 12, Failures: 12, Errors: 0, Skipped: 0, Time elapsed: 8.151 s <<< FAILURE! - in rajTest_tests.Unit_Tests
+getBillingSitesTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.824 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getBillingSitesTest(Unit_Tests.java:42)
+
+getDomainTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.72 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getDomainTest(Unit_Tests.java:55)
+
+getMachineImagesTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.727 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getMachineImagesTest(Unit_Tests.java:51)
+
+getClusterStorageTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.631 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getClusterStorageTest(Unit_Tests.java:81)
+
+getCompanyTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.73 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getCompanyTest(Unit_Tests.java:27)
+
+getCluterCatalogTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.645 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getCluterCatalogTest(Unit_Tests.java:69)
+
+getClusterMachineImagesTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.639 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getClusterMachineImagesTest(Unit_Tests.java:73)
+
+getOrdersTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.631 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getOrdersTest(Unit_Tests.java:85)
+
+getClustersTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.641 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getClustersTest(Unit_Tests.java:59)
+
+getDataCentersTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.616 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getDataCentersTest(Unit_Tests.java:32)
+
+getOrderProductsTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.644 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getOrderProductsTest(Unit_Tests.java:47)
+
+getClusterHostsTest(rajTest_tests.Unit_Tests)  Time elapsed: 0.616 s  <<< FAILURE!
+java.lang.AssertionError: expected:<401> but was:<200>
+	at rajTest_tests.Unit_Tests.getClusterHostsTest(Unit_Tests.java:77)
+
