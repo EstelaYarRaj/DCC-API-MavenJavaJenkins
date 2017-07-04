@@ -8,7 +8,7 @@ node {
                echo 'Reading..'
             }
          stage('Build') {
-            sh "C:\maven\bin\mvn clean build"
+            bat "${mavenHome}\\bin\\mvn clean build"
             steps {
                 echo 'Building..'  
             }
@@ -18,13 +18,13 @@ node {
                 echo 'Analyzing..'  
             }
             withSonarQubeEnv('My SonarQube Server') {
-                 sh 'C:\maven\bin\mvn mvn sonar:sonar'
+                 bat "${mavenHome}\\bin\\mvn sonar:sonar'
                  }
             }
         }
        
         stage('Test') {
-          sh "C:\maven\bin\mvn clean test"
+          bat "${mavenHome}\\bin\\mvn clean test"
             steps {
                 echo 'Testing..'
             }
