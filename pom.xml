@@ -5,7 +5,13 @@
 	<artifactId>rajTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
+	
+	<scm>
+		<connection>scm:git:https://github.com/EstelaYarRaj/DCC-API-MavenJavaJenkins.git</connection>
+		<developerConnection>scm:git:https://github.com/EstelaYarRaj/DCC-API-MavenJavaJenkins.git</developerConnection>
+		<url>https://github.com/EstelaYarRaj/DCC-API-MavenJavaJenkins.git</url>
+	</scm>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -30,6 +36,15 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.9.5</version>
+				<configuration>
+					<connectionType>connection</connectionType>
+				</configuration>
+			</plugin>
+		
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
