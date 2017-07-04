@@ -18,7 +18,7 @@ node {
                 echo 'Analyzing..'  
             }
             withSonarQubeEnv('My SonarQube Server') {
-                 bat "${mavenHome}\\bin\\mvn sonar:sonar'
+                 bat "${mavenHome}\\bin\\mvn sonar:sonar"
                  }
             }
         }
