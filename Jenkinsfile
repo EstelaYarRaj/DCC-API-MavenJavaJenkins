@@ -30,7 +30,7 @@ node {
             }
              post {
                 always {
-                  junit "C:\Users\AB83732\Desktop\workspace\DCC-API-MavenJavaJenkins\target\surefire-reports\"
+                  junit "C:/Users/AB83732/Desktop/workspace/DCC-API-MavenJavaJenkins/target/surefire-reports/"
                 }
             }            
         }
