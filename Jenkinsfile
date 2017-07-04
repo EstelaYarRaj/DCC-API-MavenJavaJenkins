@@ -1,6 +1,4 @@
 node {
-
-    stages {
         stage('Read') {
             git url: 'https://github.com/EstelaYarRaj/DCC-API-MavenJavaJenkins.git'
             def mavenHome = tool 'MAVEN_HOME'
@@ -33,6 +31,5 @@ node {
                   junit "C:/Users/AB83732/Desktop/workspace/DCC-API-MavenJavaJenkins/target/surefire-reports/"
                 }
             }            
-        }
-    }
-}
+       }
+  }
