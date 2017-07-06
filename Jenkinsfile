@@ -5,26 +5,12 @@ node {
             
         stage ('Build') {
             steps {
-                bat 'mvn -Dmaven.test.failure.ignore=true install' 
+                bat 'mvn -Dmaven.test.failure.ignore=true package' 
             }
-        
-           
-        stage('SonarQube analysis'){ 
-       	steps {
-                echo 'Analyzing..'  
-            }
-        withSonarQubeEnv('My SonarQube Server') {
-            '${mavenHome}\\\\bin\\\\mvn sonar:sonar'
-                 }
-        }    
-        
-       
-        stage('Test') {
-        '${mavenHome}\\\\bin\\\\mvn clean test'            
-             post {
+            post {
                 always {
                   junit 'C:/Users/AB83732/Desktop/workspace/DCC-API-MavenJavaJenkins/target/surefire-reports/'
                 }
-            }            
-        }
+            }                   
+      
   }
