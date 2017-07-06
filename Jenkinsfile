@@ -2,8 +2,8 @@ node {
         tool name: 'M3', type: 'maven'
         tool name: 'java', type: 'jdk'   
         stage ('Initialize') {
-            steps {
-                sh '''
+            step {
+                bat '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
@@ -13,7 +13,7 @@ node {
         def mavenHome = tool 'M3'
             
         stage ('Build') {
-            steps {
+            step {
                 bat 'mvn -Dmaven.test.failure.ignore=true package' 
             }
             post {
