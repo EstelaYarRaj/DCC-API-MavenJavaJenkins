@@ -4,7 +4,7 @@ node {
         def mavenHome = tool 'M3'
             
         stage('Maven build') {
-                buildInfo = rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install'
+                buildInfo = mavenHome.run pom: 'maven-example/pom.xml', goals: 'clean install'
                 steps {
                 echo 'Building..'  
             }
