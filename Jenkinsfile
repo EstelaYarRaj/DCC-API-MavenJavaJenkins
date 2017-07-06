@@ -1,8 +1,6 @@
 node {
-        tool {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
+        tool name: 'M3', type: 'maven'
+        tool name: 'java', type: 'jdk'   
         stage ('Initialize') {
             steps {
                 sh '''
