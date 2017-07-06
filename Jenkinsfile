@@ -4,7 +4,7 @@ node {
         def mavenHome = tool 'M3'
             
         stage('Build'){ 
-        bat '${mavenHome}\\\\bin\\\\mvn clean package'
+        '${mavenHome}\\\\bin\\\\mvn clean package'
         steps {
                 echo 'Building..'  
             }
@@ -14,13 +14,13 @@ node {
                 echo 'Analyzing..'  
             }
         withSonarQubeEnv('My SonarQube Server') {
-            bat '${mavenHome}\\\\bin\\\\mvn sonar:sonar'
+            '${mavenHome}\\\\bin\\\\mvn sonar:sonar'
                  }
         }    
         
        
         stage('Test') {
-        bat '${mavenHome}\\\\bin\\\\mvn clean test'            
+        '${mavenHome}\\\\bin\\\\mvn clean test'            
              post {
                 always {
                   junit 'C:/Users/AB83732/Desktop/workspace/DCC-API-MavenJavaJenkins/target/surefire-reports/'
