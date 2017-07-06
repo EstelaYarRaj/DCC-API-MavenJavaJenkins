@@ -3,12 +3,10 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f3d1d799-0d7a-47da-885d-a8d4d32dd5c3', url: 'https://github.com/EstelaYarRaj/DCC-API-MavenJavaJenkins.git']]])
         def mavenHome = tool 'M3'
             
-        stage('Maven build') {
-                buildInfo = mavenHome.run pom: 'maven-example/pom.xml', goals: 'clean install'
-                steps {
-                echo 'Building..'  
+        stage ('Build') {
+            steps {
+                bat 'mvn -Dmaven.test.failure.ignore=true install' 
             }
-        }
         
            
         stage('SonarQube analysis'){ 
