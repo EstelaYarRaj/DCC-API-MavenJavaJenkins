@@ -3,8 +3,7 @@ node {
         tool name: 'java', type: 'jdk'   
         stage ('Initialize') {
             step {
-                bat 'echo "PATH = ${PATH}"'
-                bat 'echo "M2_HOME = ${M2_HOME}"'
+                bat 'echo "M2_HOME = ${M3}"'
                 
             }              
         stage('Read') 
