@@ -10,7 +10,7 @@ node
         {
                 withMaven(maven: 'M3') 
                 {
-                   bat 'mvn package'                             
+                   bat 'mvnPkge'                             
                    post {
                          always {
                          junit 'C:/Users/AB83732/Desktop/workspace/DCC-API-MavenJavaJenkins/target/surefire-reports/'
